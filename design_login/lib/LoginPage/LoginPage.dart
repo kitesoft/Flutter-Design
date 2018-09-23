@@ -16,13 +16,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   AnimationController _loginButtonController;
 
   /* Play Animation Function */
-  Future<Null> _playAnimation() async {
+  /*Future<Null> _playAnimation() async {
     try {
-    print("on Tap Call");
       await _loginButtonController.forward();
       await _loginButtonController.reverse();
     } on TickerCanceled {}
-  }
+  }*/
 
   @override
   void initState() {
@@ -42,10 +41,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
             setState(() {
               animationStatus = 1;
             });
-            _playAnimation();
+//            _playAnimation();
           },
           child: new Sign_In_Btn(),
-        ):new LoginBtnAnimation(buttonController:  _loginButtonController.view,),
+//        ):new LoginBtnAnimation(buttonController:  _loginButtonController.view,),
+        ):new LoginBtnAnimation(),
 
       ),
     );
