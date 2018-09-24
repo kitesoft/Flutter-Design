@@ -1,3 +1,4 @@
+import 'package:design_login/Home/HomePage.dart';
 import 'package:design_login/LoginPage/LoginPage.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new LoginPage(),
+      routes: {
+        "/login":(BuildContext context) => LoginPage(),
+        "/home":(BuildContext context) => HomePage()
+      },
     );
   }
 }

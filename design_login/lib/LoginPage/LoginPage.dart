@@ -1,5 +1,7 @@
 import 'dart:async';
-import 'package:design_login/LoginPage/Animation/loginAnimation.dart';
+import 'package:design_login/LoginPage/Animation/SqueezeAndZooming.dart';
+import 'package:design_login/LoginPage/Animation/SqueezeAnimation.dart';
+import 'package:design_login/LoginPage/Animation/ZoomingAnimation.dart';
 import 'package:design_login/LoginPage/UI_Element/Sign_In_Btn.dart';
 import 'package:flutter/material.dart';
 
@@ -41,12 +43,9 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
             setState(() {
               animationStatus = 1;
             });
-//            _playAnimation();
           },
           child: new Sign_In_Btn(),
-//        ):new LoginBtnAnimation(buttonController:  _loginButtonController.view,),
-        ):new LoginBtnAnimation(),
-
+        ):new SqueezeAndZooming(),
       ),
     );
   }

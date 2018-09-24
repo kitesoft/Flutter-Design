@@ -3,17 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class LoginBtnAnimation extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState() {
     return _LoginBtnAnimationState();
   }
 }
 
-class _LoginBtnAnimationState extends State<LoginBtnAnimation> with TickerProviderStateMixin {
+class _LoginBtnAnimationState extends State<LoginBtnAnimation>
+    with TickerProviderStateMixin {
   AnimationController buttonController;
   Animation buttonSqueezeAnimation;
+  Animation containerCircleAnimation;
+  Animation buttonZoomOut;
+
   @override
   void initState() {
     super.initState();
@@ -25,12 +27,12 @@ class _LoginBtnAnimationState extends State<LoginBtnAnimation> with TickerProvid
 
     /* After Initialize the Animation Controller, initialize Button Squeeze Animation */
     buttonSqueezeAnimation = new Tween(
-
       /* Start Width */
       begin: 320.0,
       /* End Width */
       end: 70.0,
-    ).animate(new CurvedAnimation(parent: buttonController, curve: new Interval(0.0, 0.150)));
+    ).animate(new CurvedAnimation(
+        parent: buttonController, curve: new Interval(0.0, 0.150)));
   }
 
   /*LoginBtnAnimation({Key key, this.buttonController}) {
@@ -51,8 +53,7 @@ class _LoginBtnAnimationState extends State<LoginBtnAnimation> with TickerProvid
     } on TickerCanceled {}
   }
 
-  Widget _buildAnimatedButton(BuildContext context,Widget child) {
-    print(buttonSqueezeAnimation.value);
+  Widget _buildAnimatedButton(BuildContext context, Widget child) {
     return new InkWell(
         onTap: () {
           _playAnimation();
@@ -66,22 +67,22 @@ class _LoginBtnAnimationState extends State<LoginBtnAnimation> with TickerProvid
               borderRadius: new BorderRadius.all(Radius.circular(30.0))),
           child: buttonSqueezeAnimation.value > 75.0
               ? new Text(
-            "Sign In",
-            style: new TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.w300,
-                letterSpacing: 0.3),
-          )
+                  "Sign In",
+                  style: new TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 0.3),
+                )
               : new CircularProgressIndicator(
-//            valueColor: new AlwaysStoppedAnimation(Colors.white),
-          ),
+                  valueColor: new AlwaysStoppedAnimation(Colors.white),
+                ),
         ));
   }
 
   @override
   Widget build(BuildContext context) {
-    return new AnimatedBuilder(animation: buttonController, builder: _buildAnimatedButton);
+    return new AnimatedBuilder(
+        animation: buttonController, builder: _buildAnimatedButton);
   }
-
 }
